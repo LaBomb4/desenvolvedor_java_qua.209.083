@@ -12,11 +12,8 @@ public class App {
         double y;
         double z = 0.0;
 
-        int opcao = 7;
-
         String operacao;
 
-        // Loop FIXME: 
         do {
             // Menu
         System.out.println("________________________");
@@ -30,12 +27,15 @@ public class App {
         System.out.println("-----------------------");
         operacao = leia.nextLine();
 
-            if(operacao != "0"){
+            // Operador de comparação não funciona com string
+            if(!operacao.equals("0")){
                 // Entrada de dados
                 System.out.println("Informe o valor de x:");
                     x = leia.nextDouble();
                 System.out.println("Informe o valor de y:");
                     y = leia.nextDouble();
+
+                leia.nextLine();
 
                 switch(operacao){
                     case "1":
@@ -63,12 +63,10 @@ public class App {
                 // Mostra o resultado
                 System.out.println("Resultado: " + z);
             }
-            else{
-                opcao = Integer.parseInt(operacao);
-            }
-         
-        leia.nextLine();
-        } while (opcao != 0);
+
+        } while (!operacao.equals("0"));
+
+        System.out.println("Programa finalizado.");
 
         // Fecha o Objeto leia
         leia.close();
