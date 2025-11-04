@@ -12,8 +12,54 @@
  */
 
 package com.atividade03.app;
+
+import java.util.Scanner;
+
 public class App {
     public static void main(String[] args) throws Exception {
-        System.out.println("Hello, World!");
+        // Intância da classe Scanner
+        Scanner leia = new Scanner(System.in);
+
+        // Declaração de Variáveis
+        String[] salas = new String[5];
+        String nome;
+        String Sala;
+        int idade;
+        int idadeMin = 0;
+
+        // Inicializar Array
+        salas[0] = "A roda Quadrada";
+        salas[1] = "A volta dos que não foram";
+        salas[2] = "Poeira em Alto Mar";
+        salas[3] = "As Transas do Rei Careca";
+        salas[4] = "A Vingança do Peixe Frito";
+
+        // Entrada de dados
+        System.out.println("Informe o nome: ");
+            nome = leia.nextLine();
+        System.out.println("Informe a idade:    ");
+            idade = leia.nextInt();
+
+        // Limpeza de buffer
+        leia.nextLine();
+
+
+        // Loop
+        do{ // Menu
+            System.out.println("Sala 1 - " + salas[0] + " - Livre.");
+            System.out.println("Sala 2 - " + salas[1] + " - 12 Anos.");
+            System.out.println("Sala 3 - " + salas[2] + " - 14 Anos.");
+            System.out.println("Sala 4 - " + salas[3] + " - 16 Anos.");
+            System.out.println("Sala 5 - " + salas[4] + " - 18 Anos.");
+            System.out.println("Informe a sala desejada.");
+                sala = leia.nextLine();
+
+                // Helicopter TODO
+        } while(idade < idadeMin);
+        
+
+
+        // Fecha o objeto leia
+        leia.close();
     }
 }
