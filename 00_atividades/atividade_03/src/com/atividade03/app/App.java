@@ -24,6 +24,7 @@ public class App {
         String[] salas = new String[5];
         String nome;
         String Sala;
+        String filme = "";
         int idade;
         int idadeMin = 0;
 
@@ -52,9 +53,41 @@ public class App {
             System.out.println("Sala 4 - " + salas[3] + " - 16 Anos.");
             System.out.println("Sala 5 - " + salas[4] + " - 18 Anos.");
             System.out.println("Informe a sala desejada.");
-                sala = leia.nextLine();
+                Sala = leia.nextLine();
 
-                // Helicopter TODO
+            switch (Sala){
+                case "1":
+                    filme = salas[0];
+                    idadeMin = 0;
+                    break;
+                case "2":
+                    filme = salas[1];
+                    idadeMin = 12;
+                    break;
+                case "3":
+                    filme = salas[2];
+                    idadeMin = 14;
+                    break;
+                case "4":
+                    filme = salas[3];
+                    idadeMin = 16;
+                    break;
+                case "5":
+                    filme = salas[4];
+                    idadeMin = 18;
+                    break;
+                default:
+                    System.out.println("Sala inexistente.");
+            }
+                // Verificação da idade
+                if (idade >= idadeMin) {
+                    System.out.println("Filme escolhido: " + filme);
+                    System.out.println("Tenha um bom filme, " + nome);
+                    System.out.println(":P");
+                } else {
+                    System.out.println("Entrada não permitida, favor");
+                    System.out.println("X_X");
+                }
         } while(idade < idadeMin);
         
 
