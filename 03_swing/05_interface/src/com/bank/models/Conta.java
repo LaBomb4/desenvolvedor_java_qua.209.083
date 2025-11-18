@@ -76,12 +76,14 @@ public class Conta implements IConta{
 
     @Override
     public double depositar(double valor) {
-        return this.saldo += valor;
+        this.saldo += valor;
+        return this.saldo;
     }
 
     @Override
     public double sacar(double valor) {
-        return this.saldo -= valor;
+        this.saldo -= valor;
+        return this.saldo;
     }
 
 }
