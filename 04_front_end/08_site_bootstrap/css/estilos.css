@@ -7,3 +7,17 @@
     width: 50px;
     margin: -7px -7px;
 }
+
+.label-carousel{
+    text-shadow: 1px 1px 1px #660033;
+    /*background-color: #000000*/
+    /*opacity: 0.9*/
+}
+
+.carousel-caption{
+    color: #ff0080;
+}
+
+.sombra-carousel{
+    box-shadow: 0px 10px 20px #a12b37;
+}
