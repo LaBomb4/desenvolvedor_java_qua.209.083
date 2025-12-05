@@ -1,0 +1,11 @@
+/* styles.css */
+body { background: #0f172a; color: #e6eef8; }
+header { background: linear-gradient(90deg, rgba(2,6,23,0.9), rgba(20,27,44,0.9)); }
+
+.card-img-top {
+  object-fit: cover;
+  height: 200px;
+}
+
+/* Ensure modal video maintains aspect ratio */
+#videoPlayer { max-height: 80vh; background: black; }
