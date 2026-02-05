@@ -1,10 +1,8 @@
 package com.example.app;
 
-import java.sql.DriverManager;
-
 import javax.sql.DataSource;
 
-import org.hibernate.query.criteria.spi.HibernateCriteriaBuilderDelegate;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;

@@ -4,8 +4,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
-import com.example.app.models.Eventos;
+import com.example.app.models.Evento;
 import com.example.app.repository.EventosRepository;
 
 
@@ -13,11 +14,14 @@ import com.example.app.repository.EventosRepository;
 public class Controlers {
     
     @Autowired
-    private EventosRepository CSR;
+    private EventosRepository csr;
 
-    @RequestMapping("/")
-    public String index(){
-        return "index";
+    @RequestMapping(value="/", method = RequestMethod.GET)
+    public ModelAndView index(){
+        ModelAndView mv = new ModelAndView("index");
+        Iterable<Evento> eventos = csr.findAll();
+        mv.addObject("eventos", eventos);
+        return mv;
     }
 
     @RequestMapping(value ="/cadastrarEvento", method=RequestMethod.GET)
@@ -26,9 +30,9 @@ public class Controlers {
     }
 
     @RequestMapping (value="/cadastrarEvento", method=RequestMethod.POST)
-    public String cadastrarEvento(Eventos eventos){
+    public String cadastrarEvento(Evento evento){
         
-    CSR.save(eventos);
+    csr.save(evento);
 
     return "redirect:/";
     }
@@ -37,4 +41,5 @@ public class Controlers {
     public String cadastrosucesso(){
         return "cadastro-sucesso";
     }
+
 }

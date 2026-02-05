@@ -11,7 +11,7 @@ import jakarta.persistence.Id;
 
 @Entity
 
-public class Eventos implements Serializable{
+public class Evento implements Serializable{
     private static final long serialVersionUID = 1L;
 
 
@@ -24,7 +24,7 @@ public class Eventos implements Serializable{
     private LocalTime hora;
 
 
-    public Eventos() {
+    public Evento() {
     }
 
 
