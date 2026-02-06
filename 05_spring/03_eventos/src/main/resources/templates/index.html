@@ -31,6 +31,8 @@
               <div class="card-text">Local: <span th:text="${evento.local}"></span></div>
               <div class="card-text">Data: <span th:text="${#temporals.format(evento.data, 'dd/MM/yyyy')}"></span></div>
               <div class="card-text">Hora: <span th:text="${evento.hora}"></span></div>
+              <a th:href="@{/evento/{id}(id=${evento.idEvento})}" class="card-link">Editar</a>
+              <a href="#" class="card-link">Excluir</a>
             </div>
           </div>
         </div>

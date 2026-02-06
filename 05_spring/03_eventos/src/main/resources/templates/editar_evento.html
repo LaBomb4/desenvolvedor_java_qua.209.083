@@ -34,19 +34,19 @@
                 
                 <div class="mb-3">
                     <label for="data" class="form-label">Data:</label>
-                    <input type="date" class="form-control" id="data" name="data" th:value="{#temporals.format{evento.data, 'dd/MM/yyyy'}}" required>
+                    <input type="date" class="form-control" id="data" name="data" th:value="${evento.data != null ? #temporals.format(evento.data, 'yyyy-MM-dd') : ''}" required>
                 </div>
                 
                 <div class="mb-3">
-                    <label for="hora" class="form-label">Hora:</label>
-                    <input type="time" class="form-control" id="hora" name="hora" th: required>
+                    <label for="hora" class="form-label">Hora do evento:</label>
+                    <input type="time" class="form-control" id="hora" name="hora" th:value="${evento.hora}" required>
                 </div>
                 <a th:href="@{editarEvento/{id}(id-$(evento.idEvento))}" class="card-link">Editar</a>
                 <a href="#" class="card-link">Excluir</a>
 
                 <!-- Submit ja funciona por conta propria, se fosse um button daria problema !-->
                 <div class="mb-3">
-                    <button type="submit" class="btn btn-danger">Cadastrar</button>
+                    <button type="submit" class="btn btn-danger">Salvar Alterações</button>
                 </div>
 
             </div>
