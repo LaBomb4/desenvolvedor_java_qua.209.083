@@ -6,4 +6,5 @@ import com.example.app.models.Evento;
 
 public interface EventosRepository extends CrudRepository<Evento, String>{
     Evento findByIdEvento(long idevento);   
+    Evento deleteByIdEvento(long idEvento); // TODO:
 }

@@ -46,8 +46,8 @@ public class Controlers {
         return "cadastro-sucesso";
     }
 
-    @RequestMapping(value = "/editarEvento/{idevento}", method=RequestMethod.GET)
-    public ModelAndView editarEvento(@PathVariable("idevento") long idEvento){
+    @RequestMapping(value = "/editarEvento/{idEvento}", method=RequestMethod.GET)
+    public ModelAndView editarEvento(@PathVariable("idEvento") long idEvento){
         Evento evento = csr.findByIdEvento(idEvento);
         ModelAndView mv = new ModelAndView("editar_evento");
         mv.addObject("evento", evento);
@@ -55,7 +55,7 @@ public class Controlers {
         return mv;
     }
 
-    @RequestMapping(value = "/editarEvento/{idevento}",  method = RequestMethod.POST)
+    @RequestMapping(value = "/editarEvento/{idEvento}",  method = RequestMethod.POST)
     public String editarEvento(@Validated Evento evento, BindingResult result, RedirectAttributes attributes){
         csr.save(evento);
         return "redirect: /so_sucesso";
@@ -66,6 +66,23 @@ public class Controlers {
         return "editar-sucesso";
     }
 
+    @RequestMapping("/confirmarExclusao/{idEvento}")
+    public ModelAndView confirmarExclusao(@PathVariable("idEvento") long idEvento){
+        Evento evento = csr.findByIdEvento(idEvento);
+        ModelAndView mv = new ModelAndView("excluir-evento");
+        
+        mv.addObject("evento", evento);
+        
+        return mv;
+    }
+
+    @RequestMapping("/excluirEvento")
+    public String excluirEvento(long idEvento){
+        Evento evento = csr.findByIdEvento(idEvento);
+        csr.delete(evento);
+
+        return "redirect:/";
+    }
 
 
 
