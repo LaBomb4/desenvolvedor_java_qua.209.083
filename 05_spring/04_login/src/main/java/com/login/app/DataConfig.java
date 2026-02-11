@@ -15,8 +15,8 @@ public class DataConfig {
     public DataSource dataSource(){
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
 
-        dataSource.setDriverClassName("com.mysql.cl.jdbc.Driver");
-        dataSource.setUrl("jdbc.mysql://localhost:3306/db_loguin");
+        dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
+        dataSource.setUrl("jdbc:mysql://localhost:3306/db_login");
         dataSource.setUsername("root");
         dataSource.setPassword("");
 
@@ -27,12 +27,12 @@ public class DataConfig {
     public JpaVendorAdapter JpaVendorAdapter(){
         HibernateJpaVendorAdapter adapter = new HibernateJpaVendorAdapter();
 
-        adapter.setDatabase((Database.MYSQL));
+        adapter.setDatabase(Database.MYSQL);
         adapter.setShowSql(true);
         adapter.setGenerateDdl(true);
         adapter.setPrepareConnection(true);
     
-        return null;
+        return adapter;
     }
 
 }
