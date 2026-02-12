@@ -1,5 +1,6 @@
 package com.example.app.controlers;
 
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +9,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.ui.Model;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import jakarta.servlet.http.HttpServletRequest;
 
 import com.example.app.models.Evento;
 import com.example.app.repository.EventosRepository;
@@ -84,60 +88,12 @@ public class Controlers {
         return "redirect:/";
     }
 
+    @ModelAttribute
+    public void addActivePage(HttpServletRequest request, Model model){
+        String uri = request.getRequestURI();
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        if (uri.contains("/CadastrarEvento")) model.addAttribute("activePage", "cadastrar");
+        else model.addAttribute("ActivePage", "home");
+    }
 
 }
