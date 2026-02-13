@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Login do Sistema</title>
+    </head>
+
+    <body>
+        <h2>Acesso ao Sistema</h2>
+        <!-- Mensagem de erro ao falhar o login -->
+         <div th:if="${param.logout}" style="color:green">
+            Você saiu do sistema
+         </div>
+
+         <!-- O action deve apontar para a mesma URL configurada no loginPAGE, method POST -->
+          <form th:action="@{/login}" method="post">
+            <div>
+                <label>Senha:</label>
+                <input type="password" name="password" placeholder="Sua senha" required>
+            </div>
+            <button type="submit">Entrar</button>
+          </form>
+
+          <br/>
+          <a href="/cadastro">Criar nova conta</a>
+    </body>
+</html>

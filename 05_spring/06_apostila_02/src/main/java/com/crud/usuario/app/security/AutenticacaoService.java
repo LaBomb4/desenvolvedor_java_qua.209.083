@@ -11,16 +11,16 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 @Service
-public class AutenticacaoService {
+public class AutenticacaoService implements UserDetailsService{
     @Autowired
     private UsuarioRepository usuarioRepository;
 
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException{
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Usuario usuario = usuarioRepository.findByLogin(username);
-        
-        if(usuario == null){
-            throw new UsernameNotFoundException("Usuário não encontrado!");   
+
+        if (usuario == null) {
+            throw new UsernameNotFoundException("Usuário não encontrado!");
         }
 
         return usuario;
